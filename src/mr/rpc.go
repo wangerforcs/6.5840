@@ -59,6 +59,7 @@ type RequestTaskReply struct {
 	TaskType  int
 	MapNum    int
 	ReduceNum int
+	WorkId    int
 	File      string
 }
 
@@ -66,7 +67,7 @@ type Task struct {
 	taskType  int
 	fileIndex int
 	mapFile   string
-	workid    int
+	workId    int
 	Deadline  time.Time
 }
 

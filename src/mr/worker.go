@@ -41,7 +41,7 @@ func ihash(key string) int {
 //
 func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
-	id := os.Getpid()
+	id := NULL
 	ttype := NULL
 	tid := NULL
 	for {
@@ -109,6 +109,9 @@ func Worker(mapf func(string, string) []KeyValue,
 		}
 		ttype = reply.TaskType
 		tid = reply.TaskId
+		if(id == NULL){
+			id = reply.WorkId
+		}
 	}
 
 	// Your worker implementation here.

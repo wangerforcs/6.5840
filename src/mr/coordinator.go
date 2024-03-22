@@ -17,6 +17,7 @@ type Coordinator struct {
 	state          int
 	nMap           int
 	nReduce        int
+	nextId         int
 	tasks          map[string]Task
 	availableTasks chan Task
 }
@@ -38,7 +39,7 @@ func (c *Coordinator) RequestTask(args *RequestTaskArgs, reply *RequestTaskReply
 		c.lock.Lock()
 		lastTaskId := taskName(args.TaskType, args.TaskId)
 		task, ok := c.tasks[lastTaskId]
-		if ok && task.workid == args.WorkId {
+		if ok && task.workId == args.WorkId {
 			if args.TaskType == MAP {
 				for i := 0; i < c.nReduce; i++ {
 					os.Rename(tmpMapOutFile(args.WorkId, args.TaskId, i), finalMapOutFile(args.TaskId, i))
@@ -59,11 +60,16 @@ func (c *Coordinator) RequestTask(args *RequestTaskArgs, reply *RequestTaskReply
 		return nil
 	}
 	c.lock.Lock()
-	task.workid = args.WorkId
+	if args.WorkId == NULL {
+		args.WorkId = c.nextId
+		c.nextId++
+	}
+	task.workId = args.WorkId
 	task.Deadline = time.Now().Add(10 * time.Second)
 	c.tasks[taskName(task.taskType, task.fileIndex)] = task
 	reply.TaskId = task.fileIndex
 	reply.TaskType = task.taskType
+	reply.WorkId = task.workId
 	reply.File = task.mapFile
 	reply.MapNum = c.nMap
 	reply.ReduceNum = c.nReduce
@@ -110,11 +116,9 @@ func (c *Coordinator) server() {
 // if the entire job has finished.
 //
 func (c *Coordinator) Done() bool {
-	ret := false
-
-	// Your code here.
-
-	return ret
+	c.lock.Lock()
+	defer c.lock.Unlock()
+	return c.state == END
 }
 
 //
@@ -127,6 +131,7 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 		state:          MAP,
 		nMap:           len(files),
 		nReduce:        nReduce,
+		nextId:         1,
 		tasks:          make(map[string]Task),
 		availableTasks: make(chan Task, int(math.Max(float64(len(files)), float64(nReduce)))),
 	}
@@ -135,7 +140,7 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 			taskType:  MAP,
 			fileIndex: i,
 			mapFile:   file,
-			workid:    NULL,
+			workId:    NULL,
 		}
 		c.tasks[taskName(MAP, i)] = task
 		c.availableTasks <- task
@@ -148,8 +153,8 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 			time.Sleep(1 * time.Second)
 			c.lock.Lock()
 			for _, task := range c.tasks {
-				if task.workid != NULL && time.Now().After(task.Deadline) {
-					task.workid = NULL
+				if task.workId != NULL && time.Now().After(task.Deadline) {
+					task.workId = NULL
 					c.availableTasks <- task
 				}
 			}
