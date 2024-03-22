@@ -75,8 +75,8 @@ func main() {
 		for k := i; k < j; k++ {
 			values = append(values, intermediate[k].Value)
 		}
-		// reducef 处理key和value数组，将所有value加和，由于每个单词出现一次就记录一条，因此也就是得到数组长度
 		output := reducef(intermediate[i].Key, values)
+
 		// this is the correct format for each line of Reduce output.
 		fmt.Fprintf(ofile, "%v %v\n", intermediate[i].Key, output)
 
