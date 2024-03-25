@@ -3,8 +3,6 @@ package kvsrv
 import (
 	"crypto/rand"
 	"math/big"
-	"os"
-
 	"6.5840/labrpc"
 )
 
@@ -25,7 +23,7 @@ func nrand() int64 {
 func MakeClerk(server *labrpc.ClientEnd) *Clerk {
 	ck := new(Clerk)
 	ck.server = server
-	ck.clientId = os.Getegid()
+	ck.clientId = int(nrand())
 	ck.queryId = 1
 	return ck
 }

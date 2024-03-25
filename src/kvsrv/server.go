@@ -40,7 +40,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	if Ok {
 		return
 	}
-	// kv.dupdetect[getQueryString(args.Key, args.Query, args.Client)] = true
+	kv.dupdetect[getQueryString(args.Key, args.Query, args.Client)] = true
 	value, ok := kv.kvMap[args.Key]
 	if ok {
 		reply.Value = value
@@ -57,7 +57,7 @@ func (kv *KVServer) Put(args *PutAppendArgs, reply *PutAppendReply) {
 	if Ok {
 		return
 	}
-	// kv.dupdetect[putQueryString(args.Key, args.Value, args.Query, args.Client)] = true
+	kv.dupdetect[putQueryString(args.Key, args.Value, args.Query, args.Client)] = true
 	kv.kvMap[args.Key] = args.Value
 	reply.Value = args.Value
 }
@@ -70,7 +70,7 @@ func (kv *KVServer) Append(args *PutAppendArgs, reply *PutAppendReply) {
 	if Ok {
 		return
 	}
-	// kv.dupdetect[putQueryString(args.Key, args.Value, args.Query, args.Client)] = true
+	kv.dupdetect[putQueryString(args.Key, args.Value, args.Query, args.Client)] = true
 	value, ok := kv.kvMap[args.Key]
 	if ok {
 		kv.kvMap[args.Key] = value + args.Value
