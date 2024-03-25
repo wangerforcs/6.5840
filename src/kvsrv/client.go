@@ -50,6 +50,10 @@ func (ck *Clerk) Get(key string) string {
 	for !ok {
 		ok = ck.server.Call("KVServer.Get", &args, &reply)
 	}
+	newargs := ReceivedArgs{}
+	newreply := ReceivedReply{}
+	newargs.Hash = getQueryString(key, args.Query, args.Client)
+	ck.server.Call("KVServer.Received", &newargs, &newreply)
 	return reply.Value
 }
 
@@ -74,6 +78,10 @@ func (ck *Clerk) PutAppend(key string, value string, op string) string {
 	for !ok {
 		ok = ck.server.Call("KVServer."+op, &args, &reply)
 	}
+	newargs := ReceivedArgs{}
+	newreply := ReceivedReply{}
+	newargs.Hash = putQueryString(key, value, args.Query, args.Client)
+	ck.server.Call("KVServer.Received", &newargs, &newreply)
 	return reply.Value
 }
 

@@ -1,5 +1,5 @@
 package kvsrv
-
+import "fmt"
 
 // Put or Append
 type PutAppendArgs struct {
@@ -25,4 +25,19 @@ type GetArgs struct {
 
 type GetReply struct {
 	Value string
+}
+
+type ReceivedArgs struct{
+	Hash string
+}
+
+type ReceivedReply struct{
+}
+
+func getQueryString(key string, q int, c int) string{
+	return key + fmt.Sprintf("%d", q) + fmt.Sprintf("%d", c)
+}
+
+func putQueryString(key string, value string, q int, c int) string{
+	return key + value + fmt.Sprintf("%d", q) + fmt.Sprintf("%d", c)
 }
