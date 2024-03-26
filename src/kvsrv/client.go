@@ -69,12 +69,13 @@ func (ck *Clerk) PutAppend(key string, value string, op string) string {
 	args.Key = key
 	args.LastString = ck.LastString
 	args.Value = value
-	args.Qstring = getQueryString(ck.queryId, ck.clientId)
+	args.Client = ck.clientId
+	args.Query = ck.queryId
 	ck.queryId++
 	for !ok {
 		ok = ck.server.Call("KVServer."+op, &args, &reply)
 	}
-	ck.LastString = args.Qstring
+	ck.LastString = getQueryString(args.Client, args.Query)
 	return reply.Value
 }
 

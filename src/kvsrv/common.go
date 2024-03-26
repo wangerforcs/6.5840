@@ -9,7 +9,8 @@ type PutAppendArgs struct {
 	// Field names must start with capital letters,
 	// otherwise RPC will break.
 	LastString string
-	Qstring string
+	Client int
+	Query int
 }
 
 type PutAppendReply struct {

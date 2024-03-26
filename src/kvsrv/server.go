@@ -43,7 +43,7 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 
 func (kv *KVServer) Put(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
-	qstring := args.Qstring
+	qstring := getQueryString(args.Client, args.Query)
 	kv.dupm.Lock()
 	delete(kv.dupDetect, args.LastString)
 	_, Ok := kv.dupDetect[qstring]
@@ -62,7 +62,7 @@ func (kv *KVServer) Put(args *PutAppendArgs, reply *PutAppendReply) {
 
 func (kv *KVServer) Append(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
-	qstring := args.Qstring
+	qstring := getQueryString(args.Client, args.Query)
 	kv.dupm.Lock();
 	delete(kv.dupDetect, args.LastString)
 	_, Ok := kv.dupDetect[qstring]
