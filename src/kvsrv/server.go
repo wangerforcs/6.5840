@@ -21,31 +21,37 @@ type KVServer struct {
 
 	// Your definitions here.
 	kvMap map[string]string
-	dupdetect map[string]string
+	dupDetect map[string]string
 }
 
 
 func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	// Your code here.
 	kv.kvm.Lock()
-	defer kv.kvm.Unlock()
 	value, ok := kv.kvMap[args.Key]
 	if ok {
 		reply.Value = value
 	} else {
 		reply.Value = ""
 	}
+	kv.kvm.Unlock()
+
+	kv.dupm.Lock()
+	delete(kv.dupDetect, args.LastString)
+	kv.dupm.Unlock()
 }
 
 func (kv *KVServer) Put(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
+	qstring := args.Qstring
 	kv.dupm.Lock()
-	_, Ok := kv.dupdetect[putQueryString(args.Key, args.Value, args.Query, args.Client)]
+	delete(kv.dupDetect, args.LastString)
+	_, Ok := kv.dupDetect[qstring]
 	if Ok {
 		kv.dupm.Unlock();
 		return
 	}
-	kv.dupdetect[putQueryString(args.Key, args.Value, args.Query, args.Client)] = ""
+	kv.dupDetect[qstring] = ""
 	kv.dupm.Unlock();
 
 	kv.kvm.Lock()
@@ -56,14 +62,17 @@ func (kv *KVServer) Put(args *PutAppendArgs, reply *PutAppendReply) {
 
 func (kv *KVServer) Append(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
+	qstring := args.Qstring
 	kv.dupm.Lock();
-	_, Ok := kv.dupdetect[putQueryString(args.Key, args.Value, args.Query, args.Client)]
+	delete(kv.dupDetect, args.LastString)
+	_, Ok := kv.dupDetect[qstring]
 	if Ok {
-		reply.Value = kv.dupdetect[putQueryString(args.Key, args.Value, args.Query, args.Client)]
+		reply.Value = kv.dupDetect[qstring]
 		kv.dupm.Unlock();
 		return
 	}
 	kv.dupm.Unlock();
+	
 	kv.kvm.Lock()
 	value, ok := kv.kvMap[args.Key]
 	if ok {
@@ -74,21 +83,17 @@ func (kv *KVServer) Append(args *PutAppendArgs, reply *PutAppendReply) {
 		reply.Value = ""
 	}
 	kv.kvm.Unlock()
+
 	kv.dupm.Lock();
-	kv.dupdetect[putQueryString(args.Key, args.Value, args.Query, args.Client)] = reply.Value
+	kv.dupDetect[qstring] = reply.Value
 	kv.dupm.Unlock();
 }
 
-func (kv *KVServer) Received(args *ReceivedArgs, reply* ReceivedReply) {
-	kv.dupm.Lock()
-	defer kv.dupm.Unlock()
-	delete(kv.dupdetect, args.Hash)
-}
 
 func StartKVServer() *KVServer {
 	kv := new(KVServer)
 	kv.kvMap = make(map[string]string)
-	kv.dupdetect = make(map[string]string)
+	kv.dupDetect = make(map[string]string)
 	// You may need initialization code here.
 	return kv
 }

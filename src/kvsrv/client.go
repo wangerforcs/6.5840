@@ -11,6 +11,7 @@ type Clerk struct {
 	// You will have to modify this struct.
 	clientId int
 	queryId  int
+	LastString string
 }
 
 func nrand() int64 {
@@ -25,6 +26,7 @@ func MakeClerk(server *labrpc.ClientEnd) *Clerk {
 	ck.server = server
 	ck.clientId = int(nrand())
 	ck.queryId = 1
+	ck.LastString = ""
 	return ck
 }
 
@@ -42,18 +44,12 @@ func (ck *Clerk) Get(key string) string {
 	// You will have to modify this function.
 	args := GetArgs{}
 	reply := GetReply{}
-	args.Client = ck.clientId
-	args.Query = ck.queryId
-	ck.queryId++
+	args.LastString = ck.LastString
 	args.Key = key
 	ok := false
 	for !ok {
 		ok = ck.server.Call("KVServer.Get", &args, &reply)
 	}
-	newargs := ReceivedArgs{}
-	newreply := ReceivedReply{}
-	newargs.Hash = getQueryString(key, args.Query, args.Client)
-	ck.server.Call("KVServer.Received", &newargs, &newreply)
 	return reply.Value
 }
 
@@ -71,17 +67,14 @@ func (ck *Clerk) PutAppend(key string, value string, op string) string {
 	args := PutAppendArgs{}
 	reply := PutAppendReply{}
 	args.Key = key
+	args.LastString = ck.LastString
 	args.Value = value
-	args.Client = ck.clientId
-	args.Query = ck.queryId
+	args.Qstring = getQueryString(ck.queryId, ck.clientId)
 	ck.queryId++
 	for !ok {
 		ok = ck.server.Call("KVServer."+op, &args, &reply)
 	}
-	newargs := ReceivedArgs{}
-	newreply := ReceivedReply{}
-	newargs.Hash = putQueryString(key, value, args.Query, args.Client)
-	ck.server.Call("KVServer.Received", &newargs, &newreply)
+	ck.LastString = args.Qstring
 	return reply.Value
 }
 
