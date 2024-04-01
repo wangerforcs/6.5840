@@ -1,0 +1,436 @@
+23:37:17.053861 1 server 268ms time
+23:37:17.053879 2 server 253ms time
+23:37:17.307048 Server 2 is becoming candidate
+23:37:17.307218 2 server 187ms time
+23:37:17.307527 1 server send vote to 1 term in RequestVote
+23:37:17.307627 0 server send vote to 1 term in RequestVote
+23:37:17.307730 Server 2 request vote from 1 server
+23:37:17.307742 Server 2 request vote from 0 server
+23:37:17.307746 2 becomes leader
+23:37:17.307755 0 server 278ms time
+23:37:17.307764 2 server 363ms time
+23:37:17.307790 Leader 2 is sending heartbeats
+23:37:17.307755 1 server 254ms time
+23:37:17.308165 1 server 1 term receive heartbeat from 1 term
+23:37:17.308234 1 becomes follwer in AppendEntries
+23:37:17.308206 0 server 1 term receive heartbeat from 1 term
+23:37:17.308324 0 becomes follwer in AppendEntries
+23:37:17.308375 1 server 277ms time
+23:37:17.308394 0 server 329ms time
+23:37:17.380038 Server 0 is becoming candidate
+23:37:17.380252 Server 0 request vote from 1 server
+23:37:17.380330 Server 0 request vote from 2 server
+23:37:17.391607 Server 2 is becoming candidate
+23:37:17.391868 Server 2 request vote from 0 server
+23:37:17.391959 Server 2 request vote from 1 server
+23:37:17.408533 2 server 327ms time
+23:37:17.408621 Leader 2 is sending heartbeats
+23:37:17.408977 0 server 1 term receive heartbeat from 1 term
+23:37:17.409050 0 becomes follwer in AppendEntries
+23:37:17.409212 1 server 1 term receive heartbeat from 1 term
+23:37:17.409359 1 becomes follwer in AppendEntries
+23:37:17.409215 0 server 385ms time
+23:37:17.409463 1 server 170ms time
+23:37:17.509769 2 server 185ms time
+23:37:17.509827 Leader 2 is sending heartbeats
+23:37:17.510057 1 server 1 term receive heartbeat from 1 term
+23:37:17.510088 1 becomes follwer in AppendEntries
+23:37:17.510152 1 server 248ms time
+23:37:17.510172 0 server 1 term receive heartbeat from 1 term
+23:37:17.510185 0 becomes follwer in AppendEntries
+23:37:17.510233 0 server 247ms time
+23:37:17.610550 2 server 317ms time
+23:37:17.610613 Leader 2 is sending heartbeats
+23:37:17.711714 2 server 167ms time
+23:37:17.711815 Leader 2 is sending heartbeats
+23:37:17.758067 Server 0 is becoming candidate
+23:37:17.758159 0 server 333ms time
+23:37:17.758175 Server 1 is becoming candidate
+23:37:17.758178 1 server 232ms time
+23:37:17.758546 Server 0 request vote from 1 server
+23:37:17.758765 Server 1 request vote from 0 server
+23:37:17.812858 2 server 349ms time
+23:37:17.812945 Leader 2 is sending heartbeats
+23:37:17.913949 2 server 217ms time
+23:37:17.914046 Leader 2 is sending heartbeats
+23:37:17.991361 Candidate 1 starts new selection
+23:37:17.991516 1 server 329ms time
+23:37:17.991831 0 server send vote to 3 term in RequestVote
+23:37:17.992019 Server 1 request vote from 0 server
+23:37:17.992074 1 becomes leader
+23:37:17.992092 1 server 155ms time
+23:37:17.992096 Leader 1 is sending heartbeats
+23:37:17.992057 0 server 380ms time
+23:37:17.992393 0 server 3 term receive heartbeat from 3 term
+23:37:17.992422 0 becomes follwer in AppendEntries
+23:37:17.992506 0 server 378ms time
+23:37:18.014617 2 server 353ms time
+23:37:18.014668 Leader 2 is sending heartbeats
+23:37:18.092607 1 server 328ms time
+23:37:18.092702 Leader 1 is sending heartbeats
+23:37:18.093260 0 server 3 term receive heartbeat from 3 term
+23:37:18.093326 0 becomes follwer in AppendEntries
+23:37:18.093474 0 server 313ms time
+23:37:18.114822 2 server 167ms time
+23:37:18.114899 Leader 2 is sending heartbeats
+23:37:18.193567 1 server 360ms time
+23:37:18.193655 Leader 1 is sending heartbeats
+23:37:18.194043 2 server 1 term receive heartbeat from 3 term
+23:37:18.194087 2 becomes follwer in AppendEntries
+23:37:18.194160 0 server 3 term receive heartbeat from 3 term
+23:37:18.194181 0 becomes follwer in AppendEntries
+23:37:18.194263 0 server 224ms time
+23:37:18.215165 2 server 163ms time
+23:37:18.215274 2 server 179ms time
+23:37:18.294906 1 server 225ms time
+23:37:18.295002 Leader 1 is sending heartbeats
+23:37:18.295344 2 server 3 term receive heartbeat from 3 term
+23:37:18.295377 2 becomes follwer in AppendEntries
+23:37:18.295402 0 server 3 term receive heartbeat from 3 term
+23:37:18.295425 0 becomes follwer in AppendEntries
+23:37:18.295485 2 server 226ms time
+23:37:18.295540 0 server 247ms time
+23:37:18.395820 1 server 240ms time
+23:37:18.395889 Leader 1 is sending heartbeats
+23:37:18.396147 2 server 3 term receive heartbeat from 3 term
+23:37:18.396179 2 becomes follwer in AppendEntries
+23:37:18.396277 2 server 328ms time
+23:37:18.396282 0 server 3 term receive heartbeat from 3 term
+23:37:18.396301 0 becomes follwer in AppendEntries
+23:37:18.396384 0 server 346ms time
+23:37:18.496395 1 server 353ms time
+23:37:18.496481 Leader 1 is sending heartbeats
+23:37:18.496820 0 server 3 term receive heartbeat from 3 term
+23:37:18.497030 0 becomes follwer in AppendEntries
+23:37:18.496922 2 server 3 term receive heartbeat from 3 term
+23:37:18.497085 2 becomes follwer in AppendEntries
+23:37:18.497144 0 server 230ms time
+23:37:18.497148 2 server 377ms time
+23:37:18.598120 1 server 192ms time
+23:37:18.598202 Leader 1 is sending heartbeats
+23:37:18.598590 2 server 3 term receive heartbeat from 3 term
+23:37:18.598619 2 becomes follwer in AppendEntries
+23:37:18.598659 0 server 3 term receive heartbeat from 3 term
+23:37:18.598681 0 becomes follwer in AppendEntries
+23:37:18.598705 2 server 312ms time
+23:37:18.598744 0 server 395ms time
+23:37:18.699024 1 server 342ms time
+23:37:18.699100 Leader 1 is sending heartbeats
+23:37:18.800054 1 server 270ms time
+23:37:18.800114 Leader 1 is sending heartbeats
+23:37:18.900486 1 server 194ms time
+23:37:18.900546 Leader 1 is sending heartbeats
+23:37:18.911913 Server 2 is becoming candidate
+23:37:18.912091 2 server 194ms time
+23:37:18.994334 Server 0 is becoming candidate
+23:37:18.994497 0 server 176ms time
+23:37:19.001802 1 server 205ms time
+23:37:19.001894 Leader 1 is sending heartbeats
+23:37:19.102456 1 server 289ms time
+23:37:19.102541 Leader 1 is sending heartbeats
+23:37:19.106759 Candidate 2 starts new selection
+23:37:19.106848 2 server 260ms time
+23:37:19.170607 Candidate 0 starts new selection
+23:37:19.170778 0 server 299ms time
+23:37:19.203280 1 server 380ms time
+23:37:19.203420 Leader 1 is sending heartbeats
+23:37:19.209691 Server 0 request vote from 1 server
+23:37:19.257041 Server 0 request vote from 2 server
+23:37:19.304462 1 server 234ms time
+23:37:19.304911 Leader 1 is sending heartbeats
+23:37:19.367356 Candidate 2 starts new selection
+23:37:19.367446 2 server 209ms time
+23:37:19.405680 1 server 280ms time
+23:37:19.405764 Leader 1 is sending heartbeats
+23:37:19.414880 Server 2 request vote from 0 server
+23:37:19.470290 Candidate 0 starts new selection
+23:37:19.470471 0 server 348ms time
+23:37:19.507000 1 server 230ms time
+23:37:19.507095 Leader 1 is sending heartbeats
+23:37:19.577582 Candidate 2 starts new selection
+23:37:19.577805 2 server 394ms time
+23:37:19.608208 1 server 156ms time
+23:37:19.608303 Leader 1 is sending heartbeats
+23:37:19.709810 1 server 391ms time
+23:37:19.710094 Leader 1 is sending heartbeats
+23:37:19.810826 1 server 361ms time
+23:37:19.810923 Leader 1 is sending heartbeats
+23:37:19.819198 Candidate 0 starts new selection
+23:37:19.819348 0 server 371ms time
+23:37:19.836601 Server 2 request vote from 1 server
+23:37:19.864939 Server 0 request vote from 2 server
+23:37:19.912265 1 server 176ms time
+23:37:19.912323 Leader 1 is sending heartbeats
+23:37:19.972771 Candidate 2 starts new selection
+23:37:19.972934 2 server 233ms time
+23:37:20.013532 1 server 381ms time
+23:37:20.013593 Leader 1 is sending heartbeats
+23:37:20.114157 1 server 287ms time
+23:37:20.114303 Leader 1 is sending heartbeats
+23:37:20.191326 Candidate 0 starts new selection
+23:37:20.191410 0 server 178ms time
+23:37:20.206581 Candidate 2 starts new selection
+23:37:20.206661 2 server 278ms time
+23:37:20.214873 1 server 197ms time
+23:37:20.214908 Leader 1 is sending heartbeats
+23:37:20.303570 Server 2 request vote from 0 server
+23:37:20.315874 1 server 339ms time
+23:37:20.315938 Leader 1 is sending heartbeats
+23:37:20.364526 Server 1 request vote from 2 server
+23:37:20.369888 Candidate 0 starts new selection
+23:37:20.370051 0 server 173ms time
+23:37:20.416924 1 server 218ms time
+23:37:20.417008 Leader 1 is sending heartbeats
+23:37:20.485591 Candidate 2 starts new selection
+23:37:20.485712 2 server 266ms time
+23:37:20.517979 1 server 397ms time
+23:37:20.518072 Leader 1 is sending heartbeats
+23:37:20.543201 Candidate 0 starts new selection
+23:37:20.543338 0 server 326ms time
+23:37:20.554540 Server 0 request vote from 2 server
+23:37:20.619097 1 server 392ms time
+23:37:20.619182 Leader 1 is sending heartbeats
+23:37:20.720181 1 server 202ms time
+23:37:20.720253 Leader 1 is sending heartbeats
+23:37:20.752544 Candidate 2 starts new selection
+23:37:20.752650 2 server 254ms time
+23:37:20.752910 0 server send vote to 11 term in RequestVote
+23:37:20.753009 0 server 272ms time
+23:37:20.753039 Server 2 request vote from 0 server
+23:37:20.753077 2 becomes leader
+23:37:20.753085 2 server 368ms time
+23:37:20.753087 Leader 2 is sending heartbeats
+23:37:20.753277 0 server 11 term receive heartbeat from 11 term
+23:37:20.753312 0 becomes follwer in AppendEntries
+23:37:20.753379 0 server 343ms time
+23:37:20.820810 1 server 224ms time
+23:37:20.820870 Leader 1 is sending heartbeats
+23:37:20.853223 2 server 254ms time
+23:37:20.853331 Leader 2 is sending heartbeats
+23:37:20.853720 0 server 11 term receive heartbeat from 11 term
+23:37:20.853790 0 becomes follwer in AppendEntries
+23:37:20.854004 0 server 244ms time
+23:37:20.921664 1 server 387ms time
+23:37:20.921723 Leader 1 is sending heartbeats
+23:37:20.954012 2 server 363ms time
+23:37:20.954092 Leader 2 is sending heartbeats
+23:37:20.954401 0 server 11 term receive heartbeat from 11 term
+23:37:20.954427 0 becomes follwer in AppendEntries
+23:37:20.954535 0 server 280ms time
+23:37:20.960378 Server 2 request vote from 1 server
+23:37:21.022538 1 server 167ms time
+23:37:21.022612 Leader 1 is sending heartbeats
+23:37:21.055357 2 server 211ms time
+23:37:21.055516 Leader 2 is sending heartbeats
+23:37:21.055923 0 server 11 term receive heartbeat from 11 term
+23:37:21.055977 0 becomes follwer in AppendEntries
+23:37:21.056072 0 server 187ms time
+23:37:21.109351 Server 0 request vote from 1 server
+23:37:21.123725 1 server 216ms time
+23:37:21.123828 Leader 1 is sending heartbeats
+23:37:21.156370 2 server 309ms time
+23:37:21.156439 Leader 2 is sending heartbeats
+23:37:21.156755 1 server 3 term receive heartbeat from 11 term
+23:37:21.156783 1 becomes follwer in AppendEntries
+23:37:21.156787 0 server 11 term receive heartbeat from 11 term
+23:37:21.156807 0 becomes follwer in AppendEntries
+23:37:21.156858 0 server 223ms time
+23:37:21.174035 Server 0 request vote from 1 server
+23:37:21.224604 1 server 293ms time
+23:37:21.224675 1 server 285ms time
+23:37:21.257414 2 server 363ms time
+23:37:21.257475 Leader 2 is sending heartbeats
+23:37:21.257695 1 server 11 term receive heartbeat from 11 term
+23:37:21.257742 1 becomes follwer in AppendEntries
+23:37:21.257704 0 server 11 term receive heartbeat from 11 term
+23:37:21.257784 0 becomes follwer in AppendEntries
+23:37:21.257833 1 server 334ms time
+23:37:21.257842 0 server 385ms time
+23:37:21.358414 2 server 174ms time
+23:37:21.358503 Leader 2 is sending heartbeats
+23:37:21.359132 1 server 11 term receive heartbeat from 11 term
+23:37:21.359186 1 becomes follwer in AppendEntries
+23:37:21.359186 0 server 11 term receive heartbeat from 11 term
+23:37:21.359218 0 becomes follwer in AppendEntries
+23:37:21.359309 0 server 206ms time
+23:37:21.359320 1 server 222ms time
+23:37:21.458915 2 server 324ms time
+23:37:21.458978 Leader 2 is sending heartbeats
+23:37:21.459179 1 server 11 term receive heartbeat from 11 term
+23:37:21.459207 1 becomes follwer in AppendEntries
+23:37:21.459344 1 server 304ms time
+23:37:21.459433 0 server 11 term receive heartbeat from 11 term
+23:37:21.459454 0 becomes follwer in AppendEntries
+23:37:21.459654 0 server 198ms time
+23:37:21.498297 Server 2 request vote from 0 server
+23:37:21.560204 2 server 242ms time
+23:37:21.560333 Leader 2 is sending heartbeats
+23:37:21.560708 1 server 11 term receive heartbeat from 11 term
+23:37:21.560770 1 becomes follwer in AppendEntries
+23:37:21.560712 0 server 11 term receive heartbeat from 11 term
+23:37:21.560834 0 becomes follwer in AppendEntries
+23:37:21.560889 1 server 336ms time
+23:37:21.560919 0 server 179ms time
+23:37:21.661010 2 server 180ms time
+23:37:21.661090 Leader 2 is sending heartbeats
+23:37:21.661294 1 server 11 term receive heartbeat from 11 term
+23:37:21.661325 1 becomes follwer in AppendEntries
+23:37:21.661352 0 server 11 term receive heartbeat from 11 term
+23:37:21.661366 0 becomes follwer in AppendEntries
+23:37:21.661398 1 server 395ms time
+23:37:21.661435 0 server 186ms time
+651156 0 becomes follwer in AppendEntries
+23:37:07.651181 1 server 12 term receive heartbeat from 12 term
+23:37:07.651197 1 becomes follwer in AppendEntries
+23:37:07.651295 0 server 173ms time
+23:37:07.651344 1 server 171ms time
+3:36:26.335582 Leader 1 is sending heartbeats
+23:36:26.335957 2 server 12 term receive heartbeat from 12 term
+23:36:26.336026 2 becomes follwer in AppendEntries
+from 0 server
+23:22:05.138589 0 server 268ms time
+23:22:05.138655 Leader 0 is sending heartbeats
+23:22:05.222170 Server 2 request vote from 0 server
+23:22:05.239572 0 server 209ms time
+23:22:05.239660 Leader 0 is sending heartbeats
+23:22:05.273857 Candidate 2 starts new selection
+23:22:05.273959 2 server 219ms time
+23:22:05.274345 Server 2 request vote from 1 server
+23:22:05.340154 0 server 289ms time
+23:22:05.340207 Leader 0 is sending heartbeats
+23:22:05.350801 Server 2 request vote from 0 server
+23:22:05.383039 Candidate 1 starts new selection
+23:22:05.383194 1 server 381ms time
+23:22:05.383477 Server 1 request vote from 2 server
+23:22:05.407059 Server 1 request vote from 0 server
+23:22:05.440689 0 server 164ms time
+23:22:05.440784 Leader 0 is sending heartbeats
+23:22:05.442994 Server 2 request vote from 1 server
+23:22:05.493481 Candidate 2 starts new selection
+23:22:05.493802 2 server 294ms time
+23:22:05.493988 Server 2 request vote from 1 server
+23:22:05.541884 0 server 322ms time
+23:22:05.541945 Leader 0 is sending heartbeats
+23:22:05.562336 Server 1 request vote from 0 server
+23:22:05.642403 0 server 281ms time
+23:22:05.642493 Leader 0 is sending heartbeats
+23:22:05.667079 Server 1 request vote from 0 server
+23:22:05.743308 0 server 362ms time
+23:22:05.743379 Leader 0 is sending heartbeats
+23:22:05.764773 Candidate 1 starts new selection
+23:22:05.765019 1 server 295ms time
+23:22:05.765907 Server 1 request vote from 2 server
+23:22:05.788067 Candidate 2 starts new selection
+23:22:05.788248 2 server 177ms time
+23:22:05.788669 Server 2 request vote from 1 server
+23:22:05.844390 0 server 176ms time
+23:22:05.844453 Leader 0 is sending heartbeats
+23:22:05.862711 Server 2 request vote from 0 server
+23:22:05.939133 Server 1 request vote from 2 server
+23:22:05.944737 0 server 196ms time
+23:22:05.944833 Leader 0 is sending heartbeats
+23:22:05.966482 Candidate 2 starts new selection
+23:22:05.966622 2 server 252ms time
+23:22:05.967016 Server 2 request vote from 1 server
+23:22:05.980362 Server 1 request vote from 0 server
+23:22:06.044320 Server 2 request vote from 0 server
+23:22:06.045512 0 server 174ms time
+23:22:06.045585 Leader 0 is sending heartbeats
+23:22:06.060864 Candidate 1 starts new selection
+23:22:06.061023 1 server 202ms time
+23:22:06.061431 Server 1 request vote from 2 server
+23:22:06.145860 0 server 363ms time
+23:22:06.145959 Leader 0 is sending heartbeats
+23:22:06.219696 Candidate 2 starts new selection
+23:22:06.219836 2 server 240ms time
+23:22:06.220130 Server 2 request vote from 1 server
+23:22:06.246390 0 server 187ms time
+23:22:06.246443 Leader 0 is sending heartbeats
+23:22:06.254611 Server 1 request vote from 2 server
+23:22:06.263968 Candidate 1 starts new selection
+23:22:06.264130 1 server 159ms time
+23:22:06.264887 Server 1 request vote from 2 server
+23:22:06.285337 Server 2 request vote from 1 server
+23:22:06.325826 Server 2 request vote from 1 server
+23:22:06.347136 0 server 385ms time
+23:22:06.347197 Leader 0 is sending heartbeats
+23:22:06.423775 Candidate 1 starts new selection
+23:22:06.423860 1 server 240ms time
+23:22:06.424027 Server 1 request vote from 2 server
+23:22:06.447648 0 server 157ms time
+23:22:06.447746 Leader 0 is sending heartbeats
+23:22:06.460968 Candidate 2 starts new selection
+23:22:06.461103 2 server 379ms time
+23:22:06.461381 Server 2 request vote from 1 server
+23:22:06.548290 0 server 315ms time
+23:22:06.548368 Leader 0 is sending heartbeats
+23:22:06.649029 0 server 361ms time
+23:22:06.649113 Leader 0 is sending heartbeats
+23:22:06.664346 Candidate 1 starts new selection
+23:22:06.664433 1 server 299ms time
+23:22:06.664877 Server 1 request vote from 2 server
+23:22:06.732848 Server 2 request vote from 1 server
+23:22:06.750138 0 server 292ms time
+23:22:06.750207 Leader 0 is sending heartbeats
+23:22:06.840702 Candidate 2 starts new selection
+23:22:06.840806 2 server 326ms time
+23:22:06.840978 Server 2 request vote from 1 server
+23:22:06.850944 0 server 227ms time
+23:22:06.851006 Leader 0 is sending heartbeats
+23:22:06.951265 0 server 188ms time
+23:22:06.951352 Leader 0 is sending heartbeats
+23:22:06.963516 Candidate 1 starts new selection
+23:22:06.963670 1 server 236ms time
+23:22:06.964188 Server 1 request vote from 2 server
+23:22:06.980777 Server 1 request vote from 0 server
+23:22:07.018766 Server 1 request vote from 2 server
+23:22:07.052498 0 server 336ms time
+23:22:07.052556 Leader 0 is sending heartbeats
+23:22:07.152686 0 server 322ms time
+23:22:07.152745 Leader 0 is sending heartbeats
+23:22:07.166912 Candidate 2 starts new selection
+23:22:07.167149 2 server 203ms time
+23:22:07.167492 Server 2 request vote from 1 server
+23:22:07.200530 Candidate 1 starts new selection
+23:22:07.200887 1 server 278ms time
+23:22:07.201118 Server 1 request vote from 2 server
+23:22:07.233023 Server 1 request vote from 0 server
+23:22:07.253625 0 server 314ms time
+23:22:07.253721 Leader 0 is sending heartbeats
+23:22:07.255897 Server 1 request vote from 0 server
+23:22:07.354290 0 server 289ms time
+23:22:07.354355 Leader 0 is sending heartbeats
+23:22:07.370621 Candidate 2 starts new selection
+23:22:07.370753 2 server 150ms time
+23:22:07.370973 Server 2 request vote from 1 server
+23:22:07.394883 Server 2 request vote from 0 server
+23:22:07.454718 0 server 336ms time
+23:22:07.454802 Leader 0 is sending heartbeats
+23:22:07.456988 Server 2 request vote from 0 server
+23:22:07.479912 Candidate 1 starts new selection
+23:22:07.480008 1 server 381ms time
+23:22:07.480188 Server 1 request vote from 2 server
+23:22:07.484146 Server 2 request vote from 0 server
+23:22:07.499884 Server 2 request vote from 0 server
+23:22:07.521109 Candidate 2 starts new selection
+23:22:07.521207 2 server 389ms time
+23:22:07.521458 Server 2 request vote from 1 server
+23:22:07.555490 0 server 329ms time
+23:22:07.555585 Leader 0 is sending heartbeats
+23:22:07.558806 Server 2 request vote from 0 server
+23:22:07.590248 Server 1 request vote from 2 server
+23:22:07.594607 Server 1 request vote from 0 server
+23:22:07.656755 0 server 374ms time
+23:22:07.656853 Leader 0 is sending heartbeats
+23:22:07.675530 Server 2 request vote from 1 server
+23:22:07.679159 Server 1 request vote from 0 server
+23:22:07.757820 0 server 168ms time
+23:22:07.757872 Leader 0 is sending heartbeats
+23:22:07.858806 0 server 280ms time
+23:22:07.858875 Leader 0 is sending heartbeats
+23:22:07.862119 Candidate 1 starts new selection
+23:22:07.862217 1 server 217ms time
+23:22:07.862471 Server 1 request vote from 2 server
+23:22:07.910275 Candidate 2 starts new selection
+23:22:07.910488 2 server 230ms time
+23:22:07.910946 Server 2 request vote from 1 server

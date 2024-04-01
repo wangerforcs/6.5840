@@ -61,8 +61,9 @@ type config struct {
 }
 
 var ncpu_once sync.Once
-
+var testcnt int = 0
 func make_config(t *testing.T, n int, unreliable bool, snapshot bool) *config {
+	testcnt++
 	ncpu_once.Do(func() {
 		if runtime.NumCPU() < 2 {
 			fmt.Printf("warning: only one CPU, which may conceal locking bugs\n")
