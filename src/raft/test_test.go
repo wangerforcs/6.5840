@@ -123,6 +123,28 @@ func TestManyElections3A(t *testing.T) {
 	cfg.end()
 }
 
+// trash test add by me
+func TestHalfClose3Z(t *testing.T) {
+	servers := 3
+	cfg := make_config(t, servers, false, false)
+	defer cfg.cleanup()
+
+	cfg.begin("Test (3A): Half closed")
+
+	leader1 := cfg.checkOneLeader()
+	follower := (leader1 + 1) % servers
+	cfg.disconnectIn(follower)
+
+	time.Sleep(2 * RaftElectionTimeout)
+	cfg.checkOneLeader()
+
+	cfg.connectIn(follower)
+	time.Sleep(2 * RaftElectionTimeout)
+	cfg.checkOneLeader()
+
+	cfg.end()
+}
+
 func TestBasicAgree3B(t *testing.T) {
 	servers := 3
 	cfg := make_config(t, servers, false, false)

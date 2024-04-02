@@ -399,6 +399,46 @@ func (cfg *config) disconnect(i int) {
 	}
 }
 
+func (cfg *config) disconnectIn(i int){
+	// incoming ClientEnds
+	for j := 0; j < cfg.n; j++ {
+		if cfg.endnames[j] != nil {
+			endname := cfg.endnames[j][i]
+			cfg.net.Enable(endname, false)
+		}
+	}
+}
+
+func (cfg *config) disconnectOut(i int){
+	// outgoing ClientEnds
+	for j := 0; j < cfg.n; j++ {
+		if cfg.endnames[i] != nil {
+			endname := cfg.endnames[i][j]
+			cfg.net.Enable(endname, false)
+		}
+	}
+}
+
+func (cfg *config) connectIn(i int){
+	// incoming ClientEnds
+	for j := 0; j < cfg.n; j++ {
+		if cfg.connected[j] {
+			endname := cfg.endnames[j][i]
+			cfg.net.Enable(endname, true)
+		}
+	}
+}
+
+func (cfg *config) connectOut(i int){
+	// outgoing ClientEnds
+	for j := 0; j < cfg.n; j++ {
+		if cfg.connected[j] {
+			endname := cfg.endnames[i][j]
+			cfg.net.Enable(endname, true)
+		}
+	}
+}
+
 func (cfg *config) rpcCount(server int) int {
 	return cfg.net.GetCount(server)
 }

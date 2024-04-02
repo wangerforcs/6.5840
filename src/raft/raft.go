@@ -19,10 +19,7 @@ package raft
 
 import (
 	//	"bytes"
-	"fmt"
-	"log"
 	"math/rand"
-	"os"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -242,8 +239,15 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		return
 	}
 	// 很重要的一步，可以在一定程度上避免多个节点同时选举
+	// 论文中all servers 2要求的是If RPC request or response contains term T > currentTerm:
+	// set currentTerm = T, convert to follower (§5.1)
+	// 即RPC request或者response时发现高任期需要将自己变为follower，无论是vote还是appendentry
+	// 但这样的话，如果有三台服务器0,1,2，此时0是leader，突然从0-1断开了，于是1
+	// election超时增加任期，那么重连后给0发送requestvote时，0会变成follower，这样看似是错误的
+	// 实际上是不会影响的，因为如果0有新提交的话，真正可行的leader(此时是follower)不会投票给错误的候选者1
 	if args.Term > rf.currentTerm {
-		rf.followLeader(args.Term)
+		DPrintf("Server %d update term to %d in RequestVote\n", rf.me ,args.Term)
+		rf.becomeFollower(args.Term)
 		sendCh(rf.voteCh)
 	}
 	reply.Term = rf.currentTerm
@@ -253,7 +257,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			rf.votedFor = args.CandidateId
 			reply.VoteGranted = true
 			sendCh(rf.voteCh)
-			log.Printf("%d server send vote to %d term in RequestVote\n", rf.me, args.Term)
+			DPrintf("%d server send vote to %d server %d term in RequestVote\n", rf.me, args.CandidateId, args.Term)
 		}
 	}
 }
@@ -293,15 +297,16 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
-	log.Printf("%d server %d term receive heartbeat from %d server %d term\n", rf.me, rf.currentTerm, args.LeaderId ,args.Term)
+	DPrintf("%d server %d term receive heartbeat from %d server %d term\n", rf.me, rf.currentTerm, args.LeaderId ,args.Term)
 	if args.Term < rf.currentTerm {
 		reply.Term = rf.currentTerm
 		reply.Success = false
 		return
 	}
 	if args.Term > rf.currentTerm {
-		rf.followLeader(args.Term)
-	}
+		DPrintf("Server %d update term to %d in Append\n", rf.me ,args.Term)
+		rf.becomeFollower(args.Term)
+	}  
 	sendCh(rf.appendCh)
 	reply.Term = rf.currentTerm
 	if args.PrevLogIndex >= len(rf.log) {
@@ -317,25 +322,9 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	if args.LeaderCommit > rf.commitIndex {
 		rf.commitTo(Min(args.LeaderCommit, len(rf.log)-1))
 	}
-	// unmatch_idx := -1
-    // for idx := range args.Entries {
-    //     if len(rf.log) < (args.PrevLogIndex+2+idx) ||
-    //         rf.log[(args.PrevLogIndex+1+idx)].Term != args.Entries[idx].Term {
-    //         // unmatch log found
-    //         unmatch_idx = idx
-    //         break
-    //     }
-    // }
 
-    // if unmatch_idx != -1 {
-    //     // there are unmatch entries
-    //     // truncate unmatch Follower entries, and apply Leader entries
-    //     rf.log = rf.log[:(args.PrevLogIndex + 1 + unmatch_idx)]
-    //     rf.log = append(rf.log, args.Entries[unmatch_idx:]...)
-    // }
-
-	log.Printf("%d becomes follwer in AppendEntries\n", rf.me)
-	rf.followLeader(args.Term)
+	DPrintf("%d becomes follwer in AppendEntries\n", rf.me)
+	rf.becomeFollower(args.Term)
 }
 
 func (rf *Raft) sendAppendEntries(server int, args *AppendEntriesArgs, reply *AppendEntriesReply) bool {
@@ -401,14 +390,14 @@ func (rf *Raft) ticker() {
 		rf.mu.Unlock()
 		// 稍微大一点，不然在appendlog之前就超时了
 		electionTime := time.Duration(150+(rand.Int63()%250)) * time.Millisecond
-		log.Printf("%d server %v time\n", rf.me, electionTime)
+		DPrintf("%d server %v time\n", rf.me, electionTime)
 		switch state {
 		case Follower:
 			select {
 			case <-rf.voteCh:
 			case <-rf.appendCh:
 			case <-time.After(electionTime):
-				log.Printf("Server %d is becoming candidate\n", rf.me)
+				DPrintf("Server %d is becoming candidate\n", rf.me)
 				rf.newElection()
 			}
 		case Candidate:
@@ -416,11 +405,11 @@ func (rf *Raft) ticker() {
 			case <-rf.voteCh:
 			case <-rf.appendCh:
 			case <-time.After(electionTime):
-				log.Printf("Candidate %d starts new selection\n", rf.me)
+				DPrintf("Candidate %d starts new selection\n", rf.me)
 				rf.newElection()
 			}
 		case Leader:
-			log.Printf("Leader %d is sending heartbeats\n", rf.me)
+			DPrintf("Leader %d is sending heartbeats\n", rf.me)
 			rf.newAppendLog()
 			time.Sleep(heartBeat)
 		}
@@ -465,11 +454,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
 
-	logFile, _ := os.OpenFile("log.txt"+fmt.Sprintf("%d", testcnt), os.O_RDWR|os.O_CREATE, 0766)
-	// logFile, _ := os.OpenFile("/dev/null", os.O_RDWR|os.O_CREATE, 0766)
-	log.SetOutput(logFile)
-	log.SetFlags(log.Lmicroseconds)
-
+	LogInit()
 	// start ticker goroutine to start elections
 	go rf.ticker()
 
@@ -502,12 +487,12 @@ func (rf *Raft) newElection() {
 			rf.mu.Unlock()
 			reply := RequestVoteReply{}
 			ok := rf.sendRequestVote(idx, &args, &reply)
-			log.Printf("Server %d request vote from %d server\n", rf.me, idx)
+			DPrintf("Server %d request vote from %d server\n", rf.me, idx)
 			if ok {
 				rf.mu.Lock()
 				defer rf.mu.Unlock()
 				if reply.Term > rf.currentTerm {
-					rf.followLeader(reply.Term)
+					rf.becomeFollower(reply.Term)
 					sendCh(rf.voteCh)
 					return
 				}
@@ -517,7 +502,7 @@ func (rf *Raft) newElection() {
 				if votes > len(rf.peers)/2 && rf.state == Candidate {
 					rf.becomeLeader()
 					sendCh(rf.voteCh)
-					log.Printf("%d becomes leader\n", rf.me)
+					DPrintf("%d becomes leader\n", rf.me)
 				}
 			}
 		}(i)
@@ -552,7 +537,7 @@ func (rf *Raft) newAppendLog() {
 			defer rf.mu.Unlock()
 			if ok {
 				if reply.Term > rf.currentTerm {
-					rf.followLeader(reply.Term)
+					rf.becomeFollower(reply.Term)
 					return
 				}
 				if reply.Success {
@@ -579,7 +564,7 @@ func (rf *Raft) newAppendLog() {
 
 }
 
-func (rf *Raft) followLeader(term int) {
+func (rf *Raft) becomeFollower(term int) {
 	rf.state = Follower
 	rf.currentTerm = term
 	rf.votedFor = -1
