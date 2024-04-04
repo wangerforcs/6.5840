@@ -110,6 +110,7 @@ type AppendEntriesReply struct {
 	// fast backup
 	Xterm int // 与领导者冲突的任期号
 	Xindex int // 与领导者冲突的日志索引
+	// 多余了，Xterm可以完成相同的功能
 	Xlen int // 空白的日志长度
 }
 
@@ -316,10 +317,20 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	reply.Term = rf.currentTerm
 	if args.PrevLogIndex >= len(rf.log) {
 		reply.Success = false
+		
+		reply.Xindex = len(rf.log)
+		reply.Xterm = -1
 		return
 	}
 	if args.PrevLogIndex >= 0 && rf.log[args.PrevLogIndex].Term != args.PrevLogTerm {
 		reply.Success = false
+
+		conflictid := args.PrevLogIndex
+		reply.Xterm = rf.log[args.PrevLogIndex].Term
+		for rf.log[conflictid - 1].Term == reply.Term{
+			conflictid--
+		}
+		reply.Xindex = conflictid
 		return
 	}
 	reply.Success = true
@@ -455,6 +466,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.appendCh = make(chan bool, 1)
 
 	rf.log = make([]LogEntry, 1)
+	rf.log[0].Term = -1
 	rf.nextIndex = make([]int, len(peers))
 	rf.matchIndex = make([]int, len(peers))
 
@@ -563,7 +575,15 @@ func (rf *Raft) newAppendLog() {
 						}
 					}
 				} else {
-					rf.nextIndex[idx]--
+					rf.nextIndex[idx] = reply.Xindex
+					if reply.Xterm != -1 {
+						for i := rf.getPrevLogIndex(idx); i >= 1; i-- {
+							if rf.log[i - 1].Term == reply.Xterm {
+								rf.nextIndex[idx] = i
+								break
+							}
+						}
+					}
 				}
 			}
 		}(i)
