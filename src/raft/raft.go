@@ -301,12 +301,17 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	if args.Term < rf.currentTerm {
 		reply.Term = rf.currentTerm
 		reply.Success = false
+		// partitioned leader
+		// 旧Leader始终在一个小的分区中运行，而较大的分区会进行新的选举，最终成功选出一个新的Leader
+		// fmt.Printf("why leader is behind\n")
 		return
 	}
 	if args.Term > rf.currentTerm {
 		DPrintf("Server %d update term to %d in Append\n", rf.me ,args.Term)
 		rf.becomeFollower(args.Term)
 	}  
+	// reset election timer even log does not match
+    // args.LeaderId is the current term's LeaderId
 	sendCh(rf.appendCh)
 	reply.Term = rf.currentTerm
 	if args.PrevLogIndex >= len(rf.log) {
@@ -442,6 +447,8 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.state = Follower
 	rf.votedFor = -1
 	rf.currentTerm = 0
+	rf.lastApplied = 0
+	rf.commitIndex = 0
 
 	rf.applyCh = applyCh
 	rf.voteCh = make(chan bool, 1)
@@ -590,7 +597,7 @@ func (rf*Raft) commitTo(commitIndex int){
 			for idx, entry := range Entries{
 				rf.applyCh <- ApplyMsg{CommandValid: true, Command: entry.Command, CommandIndex: last+idx}
 				rf.mu.Lock()
-				rf.lastApplied++
+				rf.lastApplied = last + idx
 				rf.mu.Unlock()
 			}
 		}(rf.lastApplied+1, entries)
