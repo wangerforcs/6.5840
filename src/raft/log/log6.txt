@@ -1,0 +1,561 @@
+16:24:45.056058 2 server 351ms time
+16:24:45.056063 2 server running
+16:24:45.210355 Server 1 is becoming candidate
+16:24:45.293943 Server 1 is becoming candidate
+16:24:45.294159 1 server 228ms time
+16:24:45.294165 1 server running
+16:24:45.294292 Server 2 update term to 6 in RequestVote
+16:24:45.294307 2 server send vote to 1 server 6 term in RequestVote
+16:24:45.294358 Server 1 request vote from 2 server
+16:24:45.294361 1 becomes leader
+16:24:45.294363 1 server 378ms time
+16:24:45.294365 1 server running
+16:24:45.294366 Leader 1 is sending heartbeats
+16:24:45.294369 server 1 snapshot state: 59 5 server state : log index 66 commit index 59
+16:24:45.294373 Server 1 is sending entries to 2 server nextid 66
+16:24:45.294421 2 server 331ms time
+16:24:45.294578 2 server running
+16:24:45.294474 2 server 6 term receive heartbeat from 1 server 6 term
+16:24:45.294610 server 2 snapshot state: 59 5 server state : log index 66 commit index 59
+16:24:45.294616 2 becomes follwer in AppendEntries
+16:24:45.294474 Server 0 update term to 6 in RequestVote
+16:24:45.294786 2 server 294ms time
+16:24:45.294794 2 server running
+16:24:45.294789 0 server send vote to 1 server 6 term in RequestVote
+16:24:45.294800 2 server 380ms time
+16:24:45.294828 2 server running
+16:24:45.294478 Server 1 is sending entries to 0 server nextid 66
+16:24:45.294863 Server 1 request vote from 0 server
+16:24:45.294863 0 server 171ms time
+16:24:45.294875 0 server running
+16:24:45.294878 0 server 332ms time
+16:24:45.294880 0 server running
+16:24:45.294927 0 server 6 term receive heartbeat from 1 server 6 term
+16:24:45.294931 server 0 snapshot state: 59 5 server state : log index 66 commit index 59
+16:24:45.294954 0 becomes follwer in AppendEntries
+16:24:45.295031 0 server 318ms time
+16:24:45.295066 0 server running
+16:24:45.357372 Server 2 is becoming candidate
+16:24:45.395508 1 server 157ms time
+16:24:45.395592 1 server running
+16:24:45.395599 Leader 1 is sending heartbeats
+16:24:45.395602 server 1 snapshot state: 59 5 server state : log index 67 commit index 66
+16:24:45.395644 Server 1 is sending entries to 2 server nextid 66
+16:24:45.395751 Server 1 is sending entries to 0 server nextid 66
+16:24:45.395837 2 server 6 term receive heartbeat from 1 server 6 term
+16:24:45.395843 server 2 snapshot state: 59 5 server state : log index 66 commit index 59
+16:24:45.395895 2 becomes follwer in AppendEntries
+16:24:45.395940 2 server 372ms time
+16:24:45.395949 2 server running
+16:24:45.396126 0 server 6 term receive heartbeat from 1 server 6 term
+16:24:45.396165 server 0 snapshot state: 59 5 server state : log index 66 commit index 59
+16:24:45.396199 0 becomes follwer in AppendEntries
+16:24:45.396242 0 server 386ms time
+16:24:45.396251 0 server running
+16:24:45.496591 1 server 290ms time
+16:24:45.496700 1 server running
+16:24:45.496707 Leader 1 is sending heartbeats
+16:24:45.496712 server 1 snapshot state: 59 5 server state : log index 67 commit index 67
+16:24:45.496765 Server 1 is sending entries to 2 server nextid 67
+16:24:45.496859 Server 1 is sending entries to 0 server nextid 67
+16:24:45.497294 0 server 6 term receive heartbeat from 1 server 6 term
+16:24:45.497351 server 0 snapshot state: 59 5 server state : log index 67 commit index 66
+16:24:45.497366 0 becomes follwer in AppendEntries
+16:24:45.497337 2 server 6 term receive heartbeat from 1 server 6 term
+16:24:45.497499 server 2 snapshot state: 59 5 server state : log index 67 commit index 66
+16:24:45.497509 2 becomes follwer in AppendEntries
+16:24:45.497553 0 server 277ms time
+16:24:45.497585 0 server running
+16:24:45.497634 2 server 367ms time
+16:24:45.497639 2 server running
+ server 231ms time
+16:24:43.437872 1 server running
+16:24:43.536776 0 server 277ms time
+16:24:43.536910 0 server running
+16:24:43.536919 Leader 0 is sending heartbeats
+16:24:43.536924 server 0 snapshot state: 49 4 server state : log index 59 commit index 58
+16:24:43.536984 Server 0 is sending entries to 2 server nextid 58
+16:24:43.537129 Server 0 is sending entries to 1 server nextid 58
+16:24:43.537375 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.537385 server 2 snapshot state: 49 4 server state : log index 58 commit index 58
+16:24:43.537389 2 becomes follwer in AppendEntries
+16:24:43.537607 2 server 187ms time
+16:24:43.538356 2 server running
+16:24:43.538373 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.538405 server 1 snapshot state: 49 4 server state : log index 58 commit index 58
+16:24:43.538409 1 becomes follwer in AppendEntries
+16:24:43.538637 1 server 256ms time
+16:24:43.538667 1 server running
+16:24:43.538711 Server 0 is taking snapshot until index 59
+16:24:43.638097 0 server 162ms time
+16:24:43.638187 0 server running
+16:24:43.638197 Leader 0 is sending heartbeats
+16:24:43.638203 server 0 snapshot state: 59 5 server state : log index 59 commit index 59
+16:24:43.638258 Server 0 is sending entries to 2 server nextid 59
+16:24:43.638385 Server 0 is sending entries to 1 server nextid 59
+16:24:43.638532 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.638537 server 2 snapshot state: 49 4 server state : log index 59 commit index 58
+16:24:43.638577 2 becomes follwer in AppendEntries
+16:24:43.638646 2 server 186ms time
+16:24:43.638677 2 server running
+16:24:43.638719 Server 2 is taking snapshot until index 59
+16:24:43.638814 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.638886 server 1 snapshot state: 49 4 server state : log index 59 commit index 58
+16:24:43.638954 1 becomes follwer in AppendEntries
+16:24:43.639049 1 server 390ms time
+16:24:43.639089 1 server running
+16:24:43.639173 Server 1 is taking snapshot until index 59
+16:24:43.738986 0 server 330ms time
+16:24:43.739102 0 server running
+16:24:43.739117 Leader 0 is sending heartbeats
+16:24:43.739123 server 0 snapshot state: 59 5 server state : log index 60 commit index 59
+16:24:43.739146 Server 0 is sending entries to 2 server nextid 59
+16:24:43.739280 Server 0 is sending entries to 1 server nextid 59
+16:24:43.739541 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.739598 server 2 snapshot state: 59 5 server state : log index 59 commit index 59
+16:24:43.739606 2 becomes follwer in AppendEntries
+16:24:43.739745 2 server 384ms time
+16:24:43.739752 2 server running
+16:24:43.739783 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.739793 server 1 snapshot state: 59 5 server state : log index 59 commit index 59
+16:24:43.739821 1 becomes follwer in AppendEntries
+16:24:43.739928 1 server 335ms time
+16:24:43.739958 1 server running
+16:24:43.839493 0 server 350ms time
+16:24:43.839608 0 server running
+16:24:43.839624 Leader 0 is sending heartbeats
+16:24:43.839639 server 0 snapshot state: 59 5 server state : log index 60 commit index 60
+16:24:43.839710 Server 0 is sending entries to 2 server nextid 60
+16:24:43.839805 Server 0 is sending entries to 1 server nextid 60
+16:24:43.839975 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.839988 server 2 snapshot state: 59 5 server state : log index 60 commit index 59
+16:24:43.839993 2 becomes follwer in AppendEntries
+16:24:43.839975 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.840027 server 1 snapshot state: 59 5 server state : log index 60 commit index 59
+16:24:43.840033 1 becomes follwer in AppendEntries
+16:24:43.840084 2 server 397ms time
+16:24:43.840087 2 server running
+16:24:43.840140 1 server 255ms time
+16:24:43.840155 1 server running
+16:24:43.940698 0 server 365ms time
+16:24:43.940800 0 server running
+16:24:43.940812 Leader 0 is sending heartbeats
+16:24:43.940818 server 0 snapshot state: 59 5 server state : log index 61 commit index 60
+16:24:43.940883 Server 0 is sending entries to 2 server nextid 60
+16:24:43.941029 Server 0 is sending entries to 1 server nextid 60
+16:24:43.941164 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.941171 server 2 snapshot state: 59 5 server state : log index 60 commit index 60
+16:24:43.941224 2 becomes follwer in AppendEntries
+16:24:43.941393 2 server 195ms time
+16:24:43.941438 2 server running
+16:24:43.941537 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:43.941558 server 1 snapshot state: 59 5 server state : log index 60 commit index 60
+16:24:43.941621 1 becomes follwer in AppendEntries
+16:24:43.941830 1 server 204ms time
+16:24:43.941883 1 server running
+16:24:44.042087 0 server 387ms time
+16:24:44.042225 0 server running
+16:24:44.042239 Leader 0 is sending heartbeats
+16:24:44.042245 server 0 snapshot state: 59 5 server state : log index 61 commit index 61
+16:24:44.042306 Server 0 is sending entries to 2 server nextid 61
+16:24:44.042419 Server 0 is sending entries to 1 server nextid 61
+16:24:44.042625 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.042637 server 2 snapshot state: 59 5 server state : log index 61 commit index 60
+16:24:44.042646 2 becomes follwer in AppendEntries
+16:24:44.042746 2 server 178ms time
+16:24:44.042760 2 server running
+16:24:44.042805 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.042819 server 1 snapshot state: 59 5 server state : log index 61 commit index 60
+16:24:44.042893 1 becomes follwer in AppendEntries
+16:24:44.042964 1 server 184ms time
+16:24:44.042977 1 server running
+16:24:44.143338 0 server 259ms time
+16:24:44.143426 0 server running
+16:24:44.143434 Leader 0 is sending heartbeats
+16:24:44.143438 server 0 snapshot state: 59 5 server state : log index 62 commit index 61
+16:24:44.143503 Server 0 is sending entries to 2 server nextid 61
+16:24:44.143599 Server 0 is sending entries to 1 server nextid 61
+16:24:44.143822 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.143881 server 2 snapshot state: 59 5 server state : log index 61 commit index 61
+16:24:44.143950 2 becomes follwer in AppendEntries
+16:24:44.143994 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.144004 server 1 snapshot state: 59 5 server state : log index 61 commit index 61
+16:24:44.144008 1 becomes follwer in AppendEntries
+16:24:44.144133 1 server 335ms time
+16:24:44.144249 1 server running
+16:24:44.144146 2 server 252ms time
+16:24:44.144270 2 server running
+16:24:44.244134 0 server 351ms time
+16:24:44.244281 0 server running
+16:24:44.244296 Leader 0 is sending heartbeats
+16:24:44.244302 server 0 snapshot state: 59 5 server state : log index 62 commit index 62
+16:24:44.244375 Server 0 is sending entries to 2 server nextid 62
+16:24:44.244680 Server 0 is sending entries to 1 server nextid 62
+16:24:44.244699 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.245023 server 2 snapshot state: 59 5 server state : log index 62 commit index 61
+16:24:44.245030 2 becomes follwer in AppendEntries
+16:24:44.245162 2 server 361ms time
+16:24:44.245183 2 server running
+16:24:44.245163 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.245202 server 1 snapshot state: 59 5 server state : log index 62 commit index 61
+16:24:44.245266 1 becomes follwer in AppendEntries
+16:24:44.245354 1 server 343ms time
+16:24:44.245373 1 server running
+16:24:44.344497 0 server 170ms time
+16:24:44.344576 0 server running
+16:24:44.344584 Leader 0 is sending heartbeats
+16:24:44.344587 server 0 snapshot state: 59 5 server state : log index 63 commit index 62
+16:24:44.344606 Server 0 is sending entries to 2 server nextid 62
+16:24:44.344711 Server 0 is sending entries to 1 server nextid 62
+16:24:44.344917 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.344982 server 2 snapshot state: 59 5 server state : log index 62 commit index 62
+16:24:44.345005 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.345016 server 1 snapshot state: 59 5 server state : log index 62 commit index 62
+16:24:44.345020 1 becomes follwer in AppendEntries
+16:24:44.345043 2 becomes follwer in AppendEntries
+16:24:44.345119 1 server 212ms time
+16:24:44.345127 1 server running
+16:24:44.345141 2 server 218ms time
+16:24:44.345144 2 server running
+16:24:44.436047 Server 0 request vote from 1 server
+16:24:44.444711 0 server 233ms time
+16:24:44.444780 0 server running
+16:24:44.444787 Leader 0 is sending heartbeats
+16:24:44.444790 server 0 snapshot state: 59 5 server state : log index 63 commit index 63
+16:24:44.444835 Server 0 is sending entries to 2 server nextid 63
+16:24:44.444921 Server 0 is sending entries to 1 server nextid 63
+16:24:44.445024 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.445028 server 2 snapshot state: 59 5 server state : log index 63 commit index 62
+16:24:44.445062 2 becomes follwer in AppendEntries
+16:24:44.445122 2 server 378ms time
+16:24:44.445150 2 server running
+16:24:44.445190 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.445196 server 1 snapshot state: 59 5 server state : log index 63 commit index 62
+16:24:44.445232 1 becomes follwer in AppendEntries
+16:24:44.445273 1 server 320ms time
+16:24:44.445280 1 server running
+16:24:44.545408 0 server 389ms time
+16:24:44.545504 0 server running
+16:24:44.545515 Leader 0 is sending heartbeats
+16:24:44.545520 server 0 snapshot state: 59 5 server state : log index 64 commit index 63
+16:24:44.545579 Server 0 is sending entries to 2 server nextid 63
+16:24:44.545692 Server 0 is sending entries to 1 server nextid 63
+16:24:44.545876 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.545930 server 2 snapshot state: 59 5 server state : log index 63 commit index 63
+16:24:44.545942 2 becomes follwer in AppendEntries
+16:24:44.545997 2 server 315ms time
+16:24:44.546059 2 server running
+16:24:44.546073 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.546092 server 1 snapshot state: 59 5 server state : log index 63 commit index 63
+16:24:44.546100 1 becomes follwer in AppendEntries
+16:24:44.546234 1 server 193ms time
+16:24:44.546265 1 server running
+16:24:44.645681 0 server 183ms time
+16:24:44.645791 0 server running
+16:24:44.645798 Leader 0 is sending heartbeats
+16:24:44.645802 server 0 snapshot state: 59 5 server state : log index 64 commit index 64
+16:24:44.645846 Server 0 is sending entries to 2 server nextid 64
+16:24:44.645952 Server 0 is sending entries to 1 server nextid 64
+16:24:44.646105 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.646115 server 2 snapshot state: 59 5 server state : log index 64 commit index 63
+16:24:44.646124 2 becomes follwer in AppendEntries
+16:24:44.646252 2 server 189ms time
+16:24:44.646303 2 server running
+16:24:44.646354 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.646365 server 1 snapshot state: 59 5 server state : log index 64 commit index 63
+16:24:44.646404 1 becomes follwer in AppendEntries
+16:24:44.646468 1 server 382ms time
+16:24:44.646484 1 server running
+16:24:44.747041 0 server 388ms time
+16:24:44.747185 0 server running
+16:24:44.747199 Leader 0 is sending heartbeats
+16:24:44.747205 server 0 snapshot state: 59 5 server state : log index 65 commit index 64
+16:24:44.747274 Server 0 is sending entries to 2 server nextid 64
+16:24:44.747381 Server 0 is sending entries to 1 server nextid 64
+16:24:44.747711 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.747771 server 1 snapshot state: 59 5 server state : log index 64 commit index 64
+16:24:44.747832 1 becomes follwer in AppendEntries
+16:24:44.747945 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.748013 server 2 snapshot state: 59 5 server state : log index 64 commit index 64
+16:24:44.748026 2 becomes follwer in AppendEntries
+16:24:44.747996 1 server 157ms time
+16:24:44.748154 1 server running
+16:24:44.748184 2 server 340ms time
+16:24:44.748186 2 server running
+16:24:44.847741 0 server 184ms time
+16:24:44.847836 0 server running
+16:24:44.847847 Leader 0 is sending heartbeats
+16:24:44.847851 server 0 snapshot state: 59 5 server state : log index 65 commit index 65
+16:24:44.847918 Server 0 is sending entries to 2 server nextid 65
+16:24:44.848008 Server 0 is sending entries to 1 server nextid 65
+16:24:44.848244 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.848344 server 1 snapshot state: 59 5 server state : log index 65 commit index 64
+16:24:44.848360 1 becomes follwer in AppendEntries
+16:24:44.848244 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.848494 server 2 snapshot state: 59 5 server state : log index 65 commit index 64
+16:24:44.848518 2 becomes follwer in AppendEntries
+16:24:44.848548 1 server 242ms time
+16:24:44.848573 1 server running
+16:24:44.848816 2 server 311ms time
+16:24:44.848868 2 server running
+16:24:44.948428 0 server 362ms time
+16:24:44.948562 0 server running
+16:24:44.948574 Leader 0 is sending heartbeats
+16:24:44.948603 server 0 snapshot state: 59 5 server state : log index 66 commit index 65
+16:24:44.948699 Server 0 is sending entries to 2 server nextid 65
+16:24:44.948802 Server 0 is sending entries to 1 server nextid 65
+16:24:44.948964 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.948971 server 2 snapshot state: 59 5 server state : log index 65 commit index 65
+16:24:44.948976 2 becomes follwer in AppendEntries
+16:24:44.949128 2 server 157ms time
+16:24:44.949143 2 server running
+16:24:44.949147 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:44.949155 server 1 snapshot state: 59 5 server state : log index 65 commit index 65
+16:24:44.949162 1 becomes follwer in AppendEntries
+16:24:44.949243 1 server 292ms time
+16:24:44.949245 1 server running
+16:24:45.049350 0 server 297ms time
+16:24:45.049493 0 server running
+16:24:45.049502 Leader 0 is sending heartbeats
+16:24:45.049505 server 0 snapshot state: 59 5 server state : log index 66 commit index 66
+16:24:45.049560 Server 0 is sending entries to 2 server nextid 66
+16:24:45.049621 Server 0 is sending entries to 1 server nextid 66
+16:24:45.049852 1 server 5 term receive heartbeat from 0 server 5 term
+16:24:45.049911 server 1 snapshot state: 59 5 server state : log index 66 commit index 65
+16:24:45.049922 1 becomes follwer in AppendEntries
+16:24:45.049855 2 server 5 term receive heartbeat from 0 server 5 term
+16:24:45.049990 server 2 snapshot state: 59 5 server state : log index 66 commit index 65
+16:24:45.050017 2 becomes follwer in AppendEntries
+16:24:45.050045 1 server 160ms time
+16:24:45.050070 1 server running
+16:24:45.050231 2 server 306ms time
+16:24:45.050395 2 server running
+tate : log index 50 commit index 49
+16:24:41.579554 2 becomes follwer in AppendEntries
+16:24:41.579707 2 server 227ms time
+16:24:41.579731 2 server running
+16:24:41.608346 Server 0 request vote from 1 server
+16:24:41.679586 1 server 371ms time
+16:24:41.679718 1 server running
+16:24:41.679735 Leader 1 is sending heartbeats
+16:24:41.679743 server 1 snapshot state: 49 4 server state : log index 51 commit index 50
+16:24:41.679822 Server 1 is sending entries to 2 server nextid 50
+16:24:41.679883 Server 1 is sending entries to 0 server nextid 50
+16:24:41.680404 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:41.680487 server 2 snapshot state: 49 4 server state : log index 50 commit index 50
+16:24:41.680550 2 becomes follwer in AppendEntries
+16:24:41.680784 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:41.680894 2 server 228ms time
+16:24:41.680921 2 server running
+16:24:41.680901 server 0 snapshot state: 49 4 server state : log index 50 commit index 50
+16:24:41.680954 0 becomes follwer in AppendEntries
+16:24:41.681120 0 server 188ms time
+16:24:41.681134 0 server running
+16:24:41.780665 1 server 176ms time
+16:24:41.780844 1 server running
+16:24:41.780866 Leader 1 is sending heartbeats
+16:24:41.780876 server 1 snapshot state: 49 4 server state : log index 51 commit index 51
+16:24:41.781337 Server 1 is sending entries to 2 server nextid 51
+16:24:41.781472 Server 1 is sending entries to 0 server nextid 51
+16:24:41.782036 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:41.782147 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:41.782196 server 0 snapshot state: 49 4 server state : log index 51 commit index 50
+16:24:41.782213 0 becomes follwer in AppendEntries
+16:24:41.782442 0 server 241ms time
+16:24:41.782468 0 server running
+16:24:41.782157 server 2 snapshot state: 49 4 server state : log index 51 commit index 50
+16:24:41.782602 2 becomes follwer in AppendEntries
+16:24:41.782761 2 server 227ms time
+16:24:41.782782 2 server running
+16:24:41.881608 1 server 223ms time
+16:24:41.881781 1 server running
+16:24:41.881800 Leader 1 is sending heartbeats
+16:24:41.881809 server 1 snapshot state: 49 4 server state : log index 52 commit index 51
+16:24:41.881931 Server 1 is sending entries to 2 server nextid 51
+16:24:41.882073 Server 1 is sending entries to 0 server nextid 51
+16:24:41.882545 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:41.882650 server 2 snapshot state: 49 4 server state : log index 51 commit index 51
+16:24:41.882688 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:41.882777 server 0 snapshot state: 49 4 server state : log index 51 commit index 51
+16:24:41.882793 0 becomes follwer in AppendEntries
+16:24:41.882741 2 becomes follwer in AppendEntries
+16:24:41.883024 0 server 397ms time
+16:24:41.883059 0 server running
+16:24:41.883106 2 server 326ms time
+16:24:41.883135 2 server running
+16:24:41.982906 1 server 373ms time
+16:24:41.983174 1 server running
+16:24:41.983192 Leader 1 is sending heartbeats
+16:24:41.983199 server 1 snapshot state: 49 4 server state : log index 52 commit index 52
+16:24:41.983302 Server 1 is sending entries to 2 server nextid 52
+16:24:41.983516 Server 1 is sending entries to 0 server nextid 52
+16:24:41.983991 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:41.984102 server 2 snapshot state: 49 4 server state : log index 52 commit index 51
+16:24:41.984221 2 becomes follwer in AppendEntries
+16:24:41.984353 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:41.984408 server 0 snapshot state: 49 4 server state : log index 52 commit index 51
+16:24:41.984427 0 becomes follwer in AppendEntries
+16:24:41.984429 2 server 323ms time
+16:24:41.984473 2 server running
+16:24:41.984682 0 server 310ms time
+16:24:41.984706 0 server running
+16:24:42.083502 1 server 263ms time
+16:24:42.083685 1 server running
+16:24:42.083707 Leader 1 is sending heartbeats
+16:24:42.083715 server 1 snapshot state: 49 4 server state : log index 53 commit index 52
+16:24:42.083757 Server 1 is sending entries to 2 server nextid 52
+16:24:42.084409 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.084453 server 2 snapshot state: 49 4 server state : log index 52 commit index 52
+16:24:42.084466 2 becomes follwer in AppendEntries
+16:24:42.084789 Server 1 is sending entries to 0 server nextid 52
+16:24:42.085262 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.085425 server 0 snapshot state: 49 4 server state : log index 52 commit index 52
+16:24:42.085448 0 becomes follwer in AppendEntries
+16:24:42.085294 2 server 319ms time
+16:24:42.085534 2 server running
+16:24:42.085742 0 server 345ms time
+16:24:42.085768 0 server running
+16:24:42.185047 1 server 326ms time
+16:24:42.185332 1 server running
+16:24:42.185353 Leader 1 is sending heartbeats
+16:24:42.185361 server 1 snapshot state: 49 4 server state : log index 53 commit index 53
+16:24:42.185625 Server 1 is sending entries to 2 server nextid 53
+16:24:42.185756 Server 1 is sending entries to 0 server nextid 53
+16:24:42.186225 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.186333 server 2 snapshot state: 49 4 server state : log index 53 commit index 52
+16:24:42.186367 2 becomes follwer in AppendEntries
+16:24:42.186656 2 server 176ms time
+16:24:42.186743 2 server running
+16:24:42.186749 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.186908 server 0 snapshot state: 49 4 server state : log index 53 commit index 52
+16:24:42.186927 0 becomes follwer in AppendEntries
+16:24:42.187073 0 server 287ms time
+16:24:42.187099 0 server running
+16:24:42.286706 1 server 357ms time
+16:24:42.287018 1 server running
+16:24:42.287037 Leader 1 is sending heartbeats
+16:24:42.287047 server 1 snapshot state: 49 4 server state : log index 54 commit index 53
+16:24:42.287154 Server 1 is sending entries to 2 server nextid 53
+16:24:42.287278 Server 1 is sending entries to 0 server nextid 53
+16:24:42.287932 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.288095 server 0 snapshot state: 49 4 server state : log index 53 commit index 53
+16:24:42.288138 0 becomes follwer in AppendEntries
+16:24:42.288098 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.288278 server 2 snapshot state: 49 4 server state : log index 53 commit index 53
+16:24:42.288302 2 becomes follwer in AppendEntries
+16:24:42.288560 2 server 249ms time
+16:24:42.288587 2 server running
+16:24:42.288694 0 server 181ms time
+16:24:42.288719 0 server running
+16:24:42.388420 1 server 171ms time
+16:24:42.388575 1 server running
+16:24:42.388594 Leader 1 is sending heartbeats
+16:24:42.388603 server 1 snapshot state: 49 4 server state : log index 54 commit index 54
+16:24:42.388767 Server 1 is sending entries to 2 server nextid 54
+16:24:42.388910 Server 1 is sending entries to 0 server nextid 54
+16:24:42.391518 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.391552 server 0 snapshot state: 49 4 server state : log index 54 commit index 53
+16:24:42.391576 0 becomes follwer in AppendEntries
+16:24:42.391792 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.391839 server 2 snapshot state: 49 4 server state : log index 54 commit index 53
+16:24:42.391859 2 becomes follwer in AppendEntries
+16:24:42.391914 0 server 230ms time
+16:24:42.391938 0 server running
+16:24:42.392342 2 server 162ms time
+16:24:42.392376 2 server running
+16:24:42.489139 1 server 388ms time
+16:24:42.489230 1 server running
+16:24:42.489239 Leader 1 is sending heartbeats
+16:24:42.489247 server 1 snapshot state: 49 4 server state : log index 55 commit index 54
+16:24:42.489273 Server 1 is sending entries to 2 server nextid 54
+16:24:42.489804 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.489825 server 2 snapshot state: 49 4 server state : log index 54 commit index 54
+16:24:42.489834 2 becomes follwer in AppendEntries
+16:24:42.490102 Server 1 is sending entries to 0 server nextid 54
+16:24:42.490579 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.490726 server 0 snapshot state: 49 4 server state : log index 54 commit index 54
+16:24:42.490736 0 becomes follwer in AppendEntries
+16:24:42.490979 2 server 176ms time
+16:24:42.490986 2 server running
+16:24:42.491000 0 server 202ms time
+16:24:42.491004 0 server running
+16:24:42.589963 1 server 167ms time
+16:24:42.590097 1 server running
+16:24:42.590113 Leader 1 is sending heartbeats
+16:24:42.590122 server 1 snapshot state: 49 4 server state : log index 55 commit index 55
+16:24:42.590395 Server 1 is sending entries to 2 server nextid 55
+16:24:42.590604 Server 1 is sending entries to 0 server nextid 55
+16:24:42.591115 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.591194 server 2 snapshot state: 49 4 server state : log index 55 commit index 54
+16:24:42.591262 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.591285 server 0 snapshot state: 49 4 server state : log index 55 commit index 54
+16:24:42.591342 0 becomes follwer in AppendEntries
+16:24:42.591278 2 becomes follwer in AppendEntries
+16:24:42.591734 0 server 171ms time
+16:24:42.591814 0 server running
+16:24:42.591844 2 server 192ms time
+16:24:42.591849 2 server running
+16:24:42.690380 1 server 155ms time
+16:24:42.690512 1 server running
+16:24:42.690528 Leader 1 is sending heartbeats
+16:24:42.690535 server 1 snapshot state: 49 4 server state : log index 56 commit index 55
+16:24:42.690620 Server 1 is sending entries to 2 server nextid 55
+16:24:42.690824 Server 1 is sending entries to 0 server nextid 55
+16:24:42.691593 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.691613 server 2 snapshot state: 49 4 server state : log index 55 commit index 55
+16:24:42.691622 2 becomes follwer in AppendEntries
+16:24:42.691890 2 server 256ms time
+16:24:42.691988 2 server running
+16:24:42.692110 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.692242 server 0 snapshot state: 49 4 server state : log index 55 commit index 55
+16:24:42.692427 0 becomes follwer in AppendEntries
+16:24:42.692752 0 server 204ms time
+16:24:42.692816 0 server running
+16:24:42.791358 1 server 241ms time
+16:24:42.791490 1 server running
+16:24:42.791510 Leader 1 is sending heartbeats
+16:24:42.791517 server 1 snapshot state: 49 4 server state : log index 56 commit index 56
+16:24:42.791615 Server 1 is sending entries to 2 server nextid 56
+16:24:42.791736 Server 1 is sending entries to 0 server nextid 56
+16:24:42.792003 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.792094 server 2 snapshot state: 49 4 server state : log index 56 commit index 55
+16:24:42.792118 2 becomes follwer in AppendEntries
+16:24:42.792242 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.792271 2 server 330ms time
+16:24:42.792310 2 server running
+16:24:42.792273 server 0 snapshot state: 49 4 server state : log index 56 commit index 55
+16:24:42.792378 0 becomes follwer in AppendEntries
+16:24:42.792659 0 server 174ms time
+16:24:42.792715 0 server running
+16:24:42.892593 1 server 187ms time
+16:24:42.892722 1 server running
+16:24:42.892744 Leader 1 is sending heartbeats
+16:24:42.892752 server 1 snapshot state: 49 4 server state : log index 57 commit index 56
+16:24:42.892838 Server 1 is sending entries to 2 server nextid 56
+16:24:42.892984 Server 1 is sending entries to 0 server nextid 56
+16:24:42.893257 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.893282 server 2 snapshot state: 49 4 server state : log index 56 commit index 56
+16:24:42.893357 2 becomes follwer in AppendEntries
+16:24:42.893660 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.893797 server 0 snapshot state: 49 4 server state : log index 56 commit index 56
+16:24:42.893827 0 becomes follwer in AppendEntries
+16:24:42.893688 2 server 161ms time
+16:24:42.893912 2 server running
+16:24:42.893936 0 server 156ms time
+16:24:42.893943 0 server running
+16:24:42.993743 1 server 168ms time
+16:24:42.993864 1 server running
+16:24:42.993920 Leader 1 is sending heartbeats
+16:24:42.993930 server 1 snapshot state: 49 4 server state : log index 57 commit index 57
+16:24:42.994018 Server 1 is sending entries to 2 server nextid 57
+16:24:42.994141 Server 1 is sending entries to 0 server nextid 57
+16:24:42.994416 2 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.994503 server 2 snapshot state: 49 4 server state : log index 57 commit index 56
+16:24:42.994539 0 server 4 term receive heartbeat from 1 server 4 term
+16:24:42.994565 server 0 snapshot state: 49 4 server state : log index 57 commit index 56
+16:24:42.994577 0 becomes follwer in AppendEntries
+16:24:42.994587 2 becomes follwer in AppendEntries
+16:24:42.994784 0 server 276ms time
+16:24:42.994811 0 server running
+16:24:42.994875 2 server 329ms time
+16:24:42.994940 2 server running
