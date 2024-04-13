@@ -23,6 +23,11 @@ type Op struct {
 	// Your definitions here.
 	// Field names must start with capital letters,
 	// otherwise RPC will break.
+	Type   string
+	Key    string
+	Value  string
+	Client int
+	Query  int
 }
 
 type KVServer struct {
@@ -35,20 +40,79 @@ type KVServer struct {
 	maxraftstate int // snapshot if log grows this big
 
 	// Your definitions here.
+	dupm sync.Mutex
+	kvMap map[string]string
+	dupDetect map[string]string
 }
 
 func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	// Your code here.
+	kv.mu.Lock()
+	value, ok := kv.kvMap[args.Key]
+	if ok {
+		reply.Value = value
+		reply.Err = OK
+	} else {
+		reply.Value = ""
+		reply.Err = ErrNoKey
+	}
+	kv.mu.Unlock()
+
+	kv.dupm.Lock()
+	delete(kv.dupDetect, args.LastString)
+	kv.dupm.Unlock()
 }
 
 // unlike in lab 2, neither Put nor Append should return a value.
 // this is already reflected in the PutAppendReply struct.
 func (kv *KVServer) Put(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
+	qstring := getQueryString(args.Client, args.Query)
+	kv.dupm.Lock()
+	delete(kv.dupDetect, args.LastString)
+	_, Ok := kv.dupDetect[qstring]
+	if Ok {
+		kv.dupm.Unlock();
+		reply.Err = OK
+		return
+	}
+	kv.dupDetect[qstring] = ""
+	kv.dupm.Unlock();
+
+	kv.mu.Lock()
+	defer kv.mu.Unlock()
+	kv.kvMap[args.Key] = args.Value
+	reply.Err = OK
 }
 
 func (kv *KVServer) Append(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
+	qstring := getQueryString(args.Client, args.Query)
+	kv.dupm.Lock();
+	delete(kv.dupDetect, args.LastString)
+	reply.Err = OK
+	_, Ok := kv.dupDetect[qstring]
+	if Ok {
+		kv.dupm.Unlock();
+		return
+	}
+	kv.dupm.Unlock();
+	
+	kv.mu.Lock()
+	value, ok := kv.kvMap[args.Key]
+	var dupvalue string
+	if ok {
+		kv.kvMap[args.Key] = value + args.Value
+		dupvalue = value
+	} else {
+		kv.kvMap[args.Key] = args.Value
+		dupvalue = ""
+	}
+	kv.mu.Unlock()
+
+	kv.dupm.Lock();
+	kv.dupDetect[qstring] = dupvalue
+	kv.dupm.Unlock();
 }
 
 // the tester calls Kill() when a KVServer instance won't
@@ -86,7 +150,7 @@ func StartKVServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persiste
 	// call labgob.Register on structures you want
 	// Go's RPC library to marshall/unmarshall.
 	labgob.Register(Op{})
-	
+
 	kv := new(KVServer)
 	kv.me = me
 	kv.maxraftstate = maxraftstate

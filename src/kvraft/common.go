@@ -1,9 +1,17 @@
 package kvraft
 
+import "fmt"
+
 const (
 	OK             = "OK"
 	ErrNoKey       = "ErrNoKey"
 	ErrWrongLeader = "ErrWrongLeader"
+)
+
+const (
+	GET = "Get"
+	PUT = "Put"
+	APPEND = "Append"
 )
 
 type Err string
@@ -15,6 +23,9 @@ type PutAppendArgs struct {
 	// You'll have to add definitions here.
 	// Field names must start with capital letters,
 	// otherwise RPC will break.
+	LastString string
+	Client int
+	Query int
 }
 
 type PutAppendReply struct {
@@ -24,9 +35,14 @@ type PutAppendReply struct {
 type GetArgs struct {
 	Key string
 	// You'll have to add definitions here.
+	LastString string
 }
 
 type GetReply struct {
 	Err   Err
 	Value string
+}
+
+func getQueryString(q int, c int) string{
+	return fmt.Sprintf("%d ", q) + fmt.Sprintf("%d", c)
 }
